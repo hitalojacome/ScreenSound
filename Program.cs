@@ -7,9 +7,6 @@
     { "Queens", new List<int> {10, 10, 10}}
 };
 
-Console.Clear();
-ExibirMenu();
-
 void ExibirLogo() // Função para exibir o logo do projeto
 {
      Console.WriteLine(@"
@@ -34,9 +31,10 @@ void ExibirMenu() // Exibe o menu de interação
 {
     ExibirLogo();
     Console.WriteLine("\nDigite 1 para registrar uma banda;");
-    Console.WriteLine("Digite 2 para exibir as bandas registradas;");
-    Console.WriteLine("Digite 3 para avaliar uma banda;");
-    Console.WriteLine("Digite 4 para exibir a média de uma banda;");
+    Console.WriteLine("Digite 2 para registrar o álbum de uma banda");
+    Console.WriteLine("Digite 3 para exibir as bandas registradas;");
+    Console.WriteLine("Digite 4 para avaliar uma banda;");
+    Console.WriteLine("Digite 5 para exibir a média de uma banda;");
     Console.WriteLine("Digite -1 para sair do menu.");
 
     Console.Write("\nDigite uma opção: ");
@@ -44,23 +42,41 @@ void ExibirMenu() // Exibe o menu de interação
 
     switch (opcaoEscolhida)
     {
-        case 1: RegistrarBandas();
+        case 1: RegistrarBanda();
             break;
-        case 2: BandasRegistradas();
+        case 2: RegistrarAlbum();
             break;
-        case 3: AvaliarBanda();
+        case 3: BandasRegistradas();
             break;
-        case 4: ExibirAvaliacao();
+        case 4: AvaliarBanda();
             break;
-        case -1:
-            Console.WriteLine("Obrigado por usar o Screen Sound!");
+        case 5: ExibirAvaliacao();
+            break;
+        case -1: Console.WriteLine("Obrigado por usar o Screen Sound!");
             break;
         default: Console.WriteLine("Opção inválida");
             break;
     }
 }
 
-void RegistrarBandas() // Registra uma banda (opção 1)
+void RegistrarAlbum()
+{
+    Console.Clear();
+    ExibirTituloDaOpcao("Registro de álbuns");
+    Console.Write("Digite a banda cujo álbum deseja registrar: ");
+    string nomeDaBanda = Console.ReadLine()!;
+    Console.Write("Agora informe o título do álbum: ");
+    string tituloAlbum = Console.ReadLine()!;
+    /**
+     * ESPAÇO RESERVADO PARA COMPLETAR A FUNÇÃO
+     */
+    Console.WriteLine($"O álbum {tituloAlbum} de {nomeDaBanda} foi registrado com sucesso!");
+    Thread.Sleep(4000);
+    Console.Clear();
+    ExibirMenu();
+}
+
+void RegistrarBanda() // Registra uma banda (opção 1)
 {
     Console.Clear();
     ExibirTituloDaOpcao("*Registro de bandas*");
@@ -70,7 +86,7 @@ void RegistrarBandas() // Registra uma banda (opção 1)
     bandasRegistradas.Add(novaBanda, new List<int>()); // Adiciona a banda como uma nova chave e cria uma lista vazia
     Console.WriteLine($"A banda {novaBanda} foi registrada com sucesso!");
 
-    Thread.Sleep(1500); // Delay de 1,5 milissegundos
+    Thread.Sleep(2000); // Delay de 1,5 milissegundos
     Console.Clear();
 
     ExibirMenu();
@@ -146,3 +162,6 @@ void ExibirAvaliacao() // Mostra a nota da banda (opção 4)
         ExibirMenu();
     }
 }
+
+Console.Clear();
+ExibirMenu();
