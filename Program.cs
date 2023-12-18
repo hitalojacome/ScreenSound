@@ -1,5 +1,4 @@
-﻿//List<string> listaBandas = new() {"U2", "The Beatles", "Recayd Mob"}; // Cria a lista de bandas com 3 bandas já inclusas
-Dictionary<string, List<int>> bandasRegistradas = new() // Cria um dicionário com as listas e suas notas
+﻿Dictionary<string, List<int>> bandasRegistradas = new() // Cria um dicionário com as listas e suas notas
 {
     { "Linkin Park", new List<int> {10, 8, 3} },
     { "The Beatles", new List<int> {10, 7, 9} },
