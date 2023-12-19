@@ -1,3 +1,5 @@
+namespace Modelos;
+
 class Musica
 {
     public string Nome { get; }

@@ -1,3 +1,5 @@
+namespace Modelos;
+
 class Album
 {
     public string Nome { get; }

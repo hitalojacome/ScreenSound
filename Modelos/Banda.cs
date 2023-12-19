@@ -1,3 +1,5 @@
+namespace Modelos;
+
 class Banda
 {
     public string Nome { get; }

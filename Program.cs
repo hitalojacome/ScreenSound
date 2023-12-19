@@ -1,4 +1,6 @@
-﻿Dictionary<string, List<int>> bandasRegistradas = new() // Cria um dicionário com as listas e suas notas
+﻿using Modelos;
+
+Dictionary<string, List<int>> bandasRegistradas = new() // Cria um dicionário com as listas e suas notas
 {
     { "Linkin Park", new List<int> {10, 8, 3} },
     { "The Beatles", new List<int> {10, 7, 9} },
