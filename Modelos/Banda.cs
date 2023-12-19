@@ -3,10 +3,18 @@ namespace Modelos;
 internal class Banda
 {
     public string Nome { get; }
-    public double Media => _notas.Average();
     public List<Album> Albuns => _albuns;
     private List<Album> _albuns = new();
-    private List<int> _notas = new();
+    private List<Avaliacao> _notas = new();
+
+    public double Media 
+    {
+        get
+        {
+            if (_notas.Count ==0) return 0;
+            else return _notas.Average(a => a.Nota);
+        }
+    }
     
     public Banda(string nome)
     {
@@ -18,7 +26,7 @@ internal class Banda
         _albuns.Add(album);
     }
 
-    public void AdicionarNota(int nota)
+    public void AdicionarNota(Avaliacao nota)
     {
         _notas.Add(nota);
     }

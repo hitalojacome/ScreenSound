@@ -3,23 +3,25 @@ namespace Modelos;
 internal class Album
 {
     public string Nome { get; }
-    public int DuracaoTotal => musicas.Sum(m => m.Duracao);
-    public List<Musica> Musicas => musicas;
-    private List<Musica> musicas = new();
+    public int DuracaoTotal => _musicas.Sum(m => m.Duracao);
+    public List<Musica> Musicas => _musicas;
+    private List<Musica> _musicas = new();
+    protected static int Contador = 0;
 
     public Album(string nome)
     {
         Nome = nome;
+        Contador++;
     }
     public void AdicionarMusica(Musica musica)
     {
-        musicas.Add(musica);
+        _musicas.Add(musica);
     }
 
     public void ExibirMusicasDoAlbum()
     {
         Console.WriteLine($"Lista de músicas do álbum {Nome}:\n");
-        foreach (var musica in musicas)
+        foreach (var musica in _musicas)
         {
             Console.WriteLine($"Música: {musica.Nome}");
         }
