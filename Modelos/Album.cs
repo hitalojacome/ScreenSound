@@ -1,6 +1,6 @@
 namespace Modelos;
 
-class Album
+internal class Album
 {
     public string Nome { get; }
     public int DuracaoTotal => musicas.Sum(m => m.Duracao);

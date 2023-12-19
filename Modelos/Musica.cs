@@ -1,6 +1,6 @@
 namespace Modelos;
 
-class Musica
+internal class Musica
 {
     public string Nome { get; }
     public Banda Artista { get; }
