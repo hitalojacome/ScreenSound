@@ -3,10 +3,8 @@ namespace Modelos;
 internal class Banda
 {
     public string Nome { get; }
-    public List<Album> Albuns => _albuns;
     private List<Album> _albuns = new();
     private List<Avaliacao> _notas = new();
-
     public double Media 
     {
         get
@@ -15,6 +13,7 @@ internal class Banda
             else return _notas.Average(a => a.Nota);
         }
     }
+    public List<Album> Albuns => _albuns;
     
     public Banda(string nome)
     {

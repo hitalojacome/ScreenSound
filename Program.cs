@@ -18,13 +18,23 @@ internal class Program
         Banda Ira = new("Ira");
         Ira.AdicionarNota(new Avaliacao(4));
         Ira.AdicionarNota(new Avaliacao(7));
-        Ira.AdicionarNota(new Avaliacao(9));
+        Ira.AdicionarNota(new Avaliacao(9)); 
 
         Dictionary<string, Banda> bandasRegistradas = new()
         {
             { LinkinPark.Nome, LinkinPark},
             { Beatles.Nome, Beatles},
             { Ira.Nome, Ira}
+        };
+
+        Dictionary<int, Menu> opcoes = new()
+        {
+            {1, new Menu1()},
+            {2, new Menu2()},
+            {3, new Menu3()},
+            {4, new Menu4()},
+            {5, new Menu5()},
+            {-1, new MenuSair()}
         };
 
         void ExibirLogo() // Função para exibir o logo do projeto
@@ -36,15 +46,6 @@ internal class Program
 ░╚═══██╗██║░░██╗██╔══██╗██╔══╝░░██╔══╝░░██║╚████║  ░╚═══██╗██║░░██║██║░░░██║██║╚████║██║░░██║
 ██████╔╝╚█████╔╝██║░░██║███████╗███████╗██║░╚███║  ██████╔╝╚█████╔╝╚██████╔╝██║░╚███║██████╔╝
 ╚═════╝░░╚════╝░╚═╝░░╚═╝╚══════╝╚══════╝╚═╝░░╚══╝  ╚═════╝░░╚════╝░░╚═════╝░╚═╝░░╚══╝╚═════╝░");
-        }
-
-        void ExibirTituloDaOpcao(string titulo) // Responsável por exibir os titulos de cada opção
-        {
-            int quantidadeLetras = titulo.Length;
-            string asteriscos = string.Empty.PadLeft(quantidadeLetras, '*');
-            Console.WriteLine(asteriscos);
-            Console.WriteLine(titulo);
-            Console.WriteLine(asteriscos + "\n");
         }
 
         void ExibirMenu() // Exibe o menu de interação
@@ -59,43 +60,22 @@ internal class Program
 
             Console.Write("\nDigite uma opção: ");
             int opcaoEscolhida = int.Parse(Console.ReadLine()!);
-
-            switch (opcaoEscolhida)
+            
+            if (opcoes.ContainsKey(opcaoEscolhida))
             {
-                case 1:
-                    Menu1 menu1 = new();
-                    menu1.Executar(bandasRegistradas);
-                    ExibirMenu();
-                    break;
-                case 2:
-                    Menu2 menu2 = new();
-                    menu2.Executar(bandasRegistradas);
-                    ExibirMenu();
-                    break;
-                case 3:
-                    Menu3 menu3 = new();
-                    menu3.Executar(bandasRegistradas);
-                    ExibirMenu();
-                    break;
-                case 4:
-                    Menu4 menu4 = new();
-                    menu4.Executar(bandasRegistradas);
-                    ExibirMenu();
-                    break;
-                case 5:
-                    Menu5 menu5 = new();
-                    menu5.Executar(bandasRegistradas);
-                    ExibirMenu();
-                    break;
-                case -1:
-                    Console.WriteLine("Obrigado por usar o Screen Sound!");
-                    break;
-                default:
-                    Console.WriteLine("Opção inválida");
-                    break;
+                Menu exibirMenu = opcoes[opcaoEscolhida];
+                exibirMenu.Executar(bandasRegistradas);
+                if (opcaoEscolhida > 0) ExibirMenu();
+            }
+            else
+            {
+                Console.WriteLine("\nOpção inválida!!");
+                Console.WriteLine("Você deve digitar uma opção existente no menu!");
+                Thread.Sleep(2000);
+                Console.Clear();
+                ExibirMenu();
             }
         }
-
         Console.Clear();
         ExibirMenu();
     }
