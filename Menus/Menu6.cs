@@ -2,23 +2,28 @@ using Modelos;
 
 namespace Menus;
 
-internal class Menu2 : Menu
+internal class Menu6 : Menu
 {
     public override void Executar(Dictionary<string, Banda> bandasRegistradas)
     {
         base.Executar(bandasRegistradas);
-        ExibirTituloDaOpcao("Registro de álbuns");
-        Console.Write("O álbum pertence a banda: ");
+        ExibirTituloDaOpcao("Média de Bandas");
+
+        Console.Write("Banda: ");
         string nomeBanda = Console.ReadLine()!;
         if (bandasRegistradas.ContainsKey(nomeBanda))
         {
-            Console.Write("Agora, informe o nome do álbum: ");
-            string nomeAlbum = Console.ReadLine()!;
             Banda banda = bandasRegistradas[nomeBanda];
-            banda.AdicionarAlbum(new Album(nomeAlbum));
+            Console.WriteLine($"\n{nomeBanda} tem média {banda.Media:F1}.");
 
-            Console.WriteLine($"\nO álbum {nomeAlbum} de {nomeBanda} foi registrado com sucesso!");
-            Thread.Sleep(2000);
+            Console.WriteLine("\nDiscografia:");
+            foreach (Album album in banda.Albuns)
+            {
+                Console.WriteLine($"{album.Nome} média {album.Media:F1}.");
+            }
+            
+            Console.WriteLine("\nDigite alguma tecla para retornar ao menu.");
+            Console.ReadKey();
             Console.Clear();
         }
         else

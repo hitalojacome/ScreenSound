@@ -6,14 +6,29 @@ internal class Musica : IAvaliavel
     public Banda Artista { get; }
     public int Duracao { get; set; }
     public bool Disponivel { get; set; }
+    private List<Avaliacao> _notas = new();
     public string DescricaoResumida => $"A música {Nome} pertence à banda {Artista}";
-    
+
+    public double Media
+    {
+        get
+        {
+            if (_notas.Count ==0) return 0;
+            else return _notas.Average(a => a.Nota);
+        }
+    }
+
     public Musica(Banda artista, string nome)
     {
         Artista = artista;
         Nome = nome;
     }
 
+    public void AdicionarNota(Avaliacao nota)
+    {
+        _notas.Add(nota);
+    }
+    
     public void ExibirFichaTecnica()
     {
         Console.WriteLine($"Nome: {Nome}");

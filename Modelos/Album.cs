@@ -3,19 +3,34 @@ namespace Modelos;
 internal class Album : IAvaliavel
 {
     public string Nome { get; }
-    public int DuracaoTotal => _musicas.Sum(m => m.Duracao);
-    public List<Musica> Musicas => _musicas;
-    private List<Musica> _musicas = new();
     protected static int Contador = 0;
+    private List<Musica> _musicas = new();
+    private List<Avaliacao> _notas = new();
+    public List<Musica> Musicas => _musicas;
+    public int DuracaoTotal => _musicas.Sum(m => m.Duracao);
+    public double Media
+    {
+        get
+        {
+            if (_notas.Count ==0) return 0;
+            else return _notas.Average(a => a.Nota);
+        }
+    }
 
     public Album(string nome)
     {
         Nome = nome;
         Contador++;
     }
+
     public void AdicionarMusica(Musica musica)
     {
         _musicas.Add(musica);
+    }
+
+    public void AdicionarNota(Avaliacao nota)
+    {
+        _notas.Add(nota);
     }
 
     public void ExibirMusicasDoAlbum()

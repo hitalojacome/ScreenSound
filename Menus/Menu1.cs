@@ -7,9 +7,9 @@ internal class Menu1 : Menu
     public override void Executar(Dictionary<string, Banda> bandasRegistradas)
     {
         base.Executar(bandasRegistradas);
-        ExibirTituloDaOpcao("*Registro de bandas*");
+        ExibirTituloDaOpcao("Registro de bandas");
 
-        Console.Write("Informe o nome da banda: ");
+        Console.Write("Nome da banda: ");
         string novaBanda = Console.ReadLine()!;
         Banda banda = new(novaBanda);
         bandasRegistradas.Add(novaBanda, banda);

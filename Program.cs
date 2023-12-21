@@ -34,6 +34,7 @@ internal class Program
             {3, new Menu3()},
             {4, new Menu4()},
             {5, new Menu5()},
+            {6, new Menu6()},
             {-1, new MenuSair()}
         };
 
@@ -51,11 +52,12 @@ internal class Program
         void ExibirMenu() // Exibe o menu de interação
         {
             ExibirLogo();
-            Console.WriteLine("\nDigite 1 para registrar uma banda;");
-            Console.WriteLine("Digite 2 para registrar o álbum de uma banda");
-            Console.WriteLine("Digite 3 para exibir as bandas registradas;");
-            Console.WriteLine("Digite 4 para avaliar uma banda;");
-            Console.WriteLine("Digite 5 para exibir a média de uma banda;");
+            Console.WriteLine("\nDigite 1 para registrar uma banda");
+            Console.WriteLine("Digite 2 para registrar um álbum");
+            Console.WriteLine("Digite 3 para exibir todas as bandas");
+            Console.WriteLine("Digite 4 para avaliar uma banda");
+            Console.WriteLine("Digite 5 para avaliar um álbum");
+            Console.WriteLine("Digite 6 para exibir detalhes de uma banda");
             Console.WriteLine("Digite -1 para sair do menu.");
 
             Console.Write("\nDigite uma opção: ");
