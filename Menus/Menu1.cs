@@ -1,3 +1,4 @@
+using OpenAI_API;
 using Modelos;
 
 namespace Menus;
@@ -13,9 +14,18 @@ internal class Menu1 : Menu
         string novaBanda = Console.ReadLine()!;
         Banda banda = new(novaBanda);
         bandasRegistradas.Add(novaBanda, banda);
-        Console.WriteLine($"A banda {novaBanda} foi registrada com sucesso!");
 
-        Thread.Sleep(2000);
+        var client = new OpenAIAPI("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"); // Cria a variável com a chave de api da openAI
+
+        var chat = client.Chat.CreateConversation(); // Cria a interação de conversa
+
+        chat.AppendSystemMessage($"Resuma a banda {novaBanda} em 1 parágrafo. Adote um estilo informal.");
+        string resposta = chat.GetResponseFromChatbotAsync().GetAwaiter().GetResult();
+        banda.Resumo = resposta;
+
+        Console.WriteLine($"A banda {novaBanda} foi registrada com sucesso!");
+        Console.WriteLine("Digite alguma tecla para retornar ao menu.");
+        Console.ReadKey();
         Console.Clear();
     }
 }

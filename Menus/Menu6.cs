@@ -7,13 +7,14 @@ internal class Menu6 : Menu
     public override void Executar(Dictionary<string, Banda> bandasRegistradas)
     {
         base.Executar(bandasRegistradas);
-        ExibirTituloDaOpcao("Média de Bandas");
+        ExibirTituloDaOpcao("Detalhes da Bandas");
 
         Console.Write("Banda: ");
         string nomeBanda = Console.ReadLine()!;
         if (bandasRegistradas.ContainsKey(nomeBanda))
         {
             Banda banda = bandasRegistradas[nomeBanda];
+            Console.WriteLine(banda.Resumo);
             Console.WriteLine($"\n{nomeBanda} tem média {banda.Media:F1}.");
 
             Console.WriteLine("\nDiscografia:");

@@ -12,7 +12,7 @@ internal class Album : IAvaliavel
     {
         get
         {
-            if (_notas.Count ==0) return 0;
+            if (_notas.Count == 0) return 0;
             else return _notas.Average(a => a.Nota);
         }
     }

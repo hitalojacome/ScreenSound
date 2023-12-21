@@ -3,6 +3,7 @@ namespace Modelos;
 internal class Banda : IAvaliavel
 {
     public string Nome { get; }
+    public string? Resumo { get; set; }
     private List<Album> _albuns = new();
     private List<Avaliacao> _notas = new();
     public double Media
