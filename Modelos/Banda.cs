@@ -1,11 +1,11 @@
 namespace Modelos;
 
-internal class Banda
+internal class Banda : IAvaliavel
 {
     public string Nome { get; }
     private List<Album> _albuns = new();
     private List<Avaliacao> _notas = new();
-    public double Media 
+    public double Media
     {
         get
         {

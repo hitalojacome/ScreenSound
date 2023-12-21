@@ -1,6 +1,6 @@
 namespace Modelos;
 
-internal class Album
+internal class Album : IAvaliavel
 {
     public string Nome { get; }
     public int DuracaoTotal => _musicas.Sum(m => m.Duracao);

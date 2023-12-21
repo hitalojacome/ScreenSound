@@ -1,6 +1,6 @@
 namespace Modelos;
 
-internal class Musica
+internal class Musica : IAvaliavel
 {
     public string Nome { get; }
     public Banda Artista { get; }
