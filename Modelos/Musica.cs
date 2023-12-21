@@ -8,7 +8,6 @@ internal class Musica : IAvaliavel
     public bool Disponivel { get; set; }
     private List<Avaliacao> _notas = new();
     public string DescricaoResumida => $"A música {Nome} pertence à banda {Artista}";
-
     public double Media
     {
         get

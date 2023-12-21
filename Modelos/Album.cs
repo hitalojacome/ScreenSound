@@ -6,7 +6,7 @@ internal class Album : IAvaliavel
     protected static int Contador = 0;
     private List<Musica> _musicas = new();
     private List<Avaliacao> _notas = new();
-    public List<Musica> Musicas => _musicas;
+    public IEnumerable<Musica> Musicas => _musicas;
     public int DuracaoTotal => _musicas.Sum(m => m.Duracao);
     public double Media
     {

@@ -13,7 +13,7 @@ internal class Banda : IAvaliavel
             else return _notas.Average(a => a.Nota);
         }
     }
-    public List<Album> Albuns => _albuns;
+    public IEnumerable<Album> Albuns => _albuns;
     
     public Banda(string nome)
     {
