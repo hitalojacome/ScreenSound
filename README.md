@@ -1,5 +1,5 @@
 # ScreenSound
-Bem-vindo ao repositório do projeto ScreenSound! Este projeto foi desenvolvido em C# como parte de um curso da Alura, com o objetivo de criar uma aplicação interativa para gerenciar informações sobre bandas, álbuns e músicas. Além disso, o ScreenSound também integra a API do Chat GPT para fornecer descrições breves das bandas pesquisadas.
+Bem-vindo ao repositório do projeto ScreenSound! Este projeto foi desenvolvido em C# com o objetivo de criar uma aplicação interativa para gerenciar informações sobre bandas, álbuns e músicas. Além disso, o ScreenSound também integra a API do Chat GPT para fornecer descrições breves das bandas pesquisadas.
 
 ## Funcionalidades
 Adição de Bandas, Álbuns e Músicas: O ScreenSound permite que os usuários adicionem informações sobre suas bandas favoritas, álbuns e músicas. A interface intuitiva torna fácil a inclusão e edição desses dados.
